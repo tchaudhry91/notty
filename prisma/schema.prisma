@@ -11,16 +11,56 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  notes Note[]
+  id       String    @id @unique
+  session  Session[]
+  Key      Key[]
+  // here you can add custom fields for your user
+  // e.g. name, email, username, roles, etc.
+  username String    @unique
+  notes    Note[]
+
+  @@map("user")
+}
+
+model Session {
+  id             String @id @unique
+  user_id        String
+  active_expires BigInt
+  idle_expires   BigInt
+  user           User   @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+  @@index([user_id])
+  @@map("session")
+}
+
+model Key {
+  id              String  @id @unique
+  hashed_password String?
+  user_id         String
+  primary         Boolean
+  expires         BigInt?
+  user            User    @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+  @@index([user_id])
+  @@map("key")
 }
 
 model Note {
-  id       Int    @id @default(autoincrement())
-  author   User   @relation(fields: [authorId], references: [id])
-  authorId Int
-  title    String
-  content  String
+  id        Int      @id @default(autoincrement())
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
+  title     String
+  createdAt DateTime @default(now())
+  content   String
+  tags      Tag[]
+
+  @@map("note")
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  notes Note[]
+
+  @@map("tag")
 }

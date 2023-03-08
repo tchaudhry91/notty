@@ -1,4 +1,5 @@
 .DS_Store
+prisma/dev.sqlite
 node_modules
 /build
 /.svelte-kit
