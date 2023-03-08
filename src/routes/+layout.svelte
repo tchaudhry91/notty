@@ -1,6 +1,8 @@
 <script>
 	import '../app.css';
 	import Header from '$lib/header/Header.svelte';
+	import Footer from '$lib/footer/Footer.svelte';
+	import Sidebar from '$lib/sidebar/Sidebar.svelte';
 
 	import { page } from '$app/stores';
 	import { handleSession } from '@lucia-auth/sveltekit/client';
@@ -13,4 +15,8 @@
 
 <Header {user} />
 
+<Sidebar />
+
 <slot />
+
+<Footer />

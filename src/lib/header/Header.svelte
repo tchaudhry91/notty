@@ -32,8 +32,6 @@
 		</a>
 	</div>
 	<div class="flex-none">
-		<ul class="menu menu-horizontal px-1">
-			<Auth {user} />
-		</ul>
+		<Auth {user} />
 	</div>
 </div>

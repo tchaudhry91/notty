@@ -5,12 +5,14 @@
 	export let user: Readable<ClientUser>;
 </script>
 
-{#if $user?.userId}
-	<form method="POST" action="/logout/github">
-		<button type="submit" class="btn btn-primary">Logout</button>
-	</form>
-{:else}
-	<form method="POST" action="/login/github">
-		<button type="submit" class="btn btn-primary">Login with GitHub</button>
-	</form>
-{/if}
+<div>
+	{#if $user?.userId}
+		<form method="POST" action="/logout/github">
+			<button type="submit" class="btn btn-sm btn-primary">Logout</button>
+		</form>
+	{:else}
+		<form method="POST" action="/login/github">
+			<button type="submit" class="btn btn-sm btn-primary">Login with GitHub</button>
+		</form>
+	{/if}
+</div>
