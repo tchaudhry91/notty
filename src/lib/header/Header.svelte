@@ -9,29 +9,30 @@
 </script>
 
 <!-- Nav Bar -->
-<div class="navbar bg-base-300 text-primary-content rounded-xl mx-auto my-2 p-2 w-11/12">
-	<div class="flex-none">
-		<button class="btn btn-square btn-ghost">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				class="inline-block w-5 h-5 stroke-current"
-				><path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M4 6h16M4 12h16M4 18h16"
-				/></svg
-			>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="/">Notty</a>
+		<button
+			class="navbar-toggler"
+			type="button"
+			data-bs-toggle="collapse"
+			data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent"
+			aria-expanded="false"
+			aria-label="Toggle navigation"
+		>
+			<span class="navbar-toggler-icon" />
 		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="/">Home</a>
+				</li>
+			</ul>
+			<div class="d-flex mx-2 m-sm-t-">
+				<Auth {user} />
+			</div>
+		</div>
 	</div>
-	<div class="flex-1">
-		<a href="/">
-			<button class="btn btn-ghost normal-case text-xl rounded-lg">Notty</button>
-		</a>
-	</div>
-	<div class="flex-none">
-		<Auth {user} />
-	</div>
-</div>
+</nav>
